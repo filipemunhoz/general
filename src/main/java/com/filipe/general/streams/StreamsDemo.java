@@ -1,10 +1,13 @@
 package com.filipe.general.streams;
 
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import com.filipe.general.enums.FieldsRequiredEnum;
 
 public class StreamsDemo {
 	
@@ -45,7 +48,13 @@ public class StreamsDemo {
 		Optional<String> reduce = list.stream().reduce((s1, s2) -> s1 + " - " + s2);
 		reduce.ifPresent(System.out::println);
 		
+		//Exemple 7
+		List<String> listN = List.of("customer-name", "customer-age", "customer-phone");
 		
+		Boolean result = EnumSet.allOf(FieldsRequiredEnum.class)
+							.stream()
+							.allMatch(enumValue -> listN.contains(enumValue.getContent()));
+		System.out.println(result);
 		
 
 	}
