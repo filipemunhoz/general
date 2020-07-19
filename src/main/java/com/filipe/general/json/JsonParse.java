@@ -2,7 +2,6 @@ package com.filipe.general.json;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.TimeZone;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,6 +22,7 @@ public class JsonParse {
 			//mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 			JsonPOJO obj = mapper.readValue(is, JsonPOJO.class);
 			
+			
 			System.out.println(obj.toString());
 			System.out.println(mapper.writeValueAsString(obj));
 						
@@ -31,3 +31,4 @@ public class JsonParse {
 		}
 	}
 }
+
